@@ -20,7 +20,7 @@
       display: flex;
       float: left;
       box-shadow: 1px 1px 1px 1px gainsboro;
-      border: 1px groove grey;
+     
    }
    .labu{
       width: 600px;
