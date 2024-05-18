@@ -1,7 +1,7 @@
 <style>
          .adj{
              height: 100px;
-			 width: 600px;				
+			 width: 600px;		
 			 margin: 0px 0px 2px 90%; 
 		 }
 		 .main{
