@@ -1,13 +1,33 @@
-<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2">
-
+<style>
+         .adj{
+             height: 100px;
+			 width: 600px;				
+			 margin: 0px 0px 2px 90%; 
+		 }
+		 .main{
+			margin: 0px 30px 0px 50px;
+		 }
+	     .newbtn{
+			
+			text-align: center;
+		 }
+		 .tit{
+			text-align: center;
+			font-family: serif;
+			font-weight: bolder;
+			font-size: x-large;
+		 }
+</style>
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+    <div class="tit">Manage Records</div>
 	<div class="row">
 		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<span>Manage Rooms</span>
-					<button class="btn btn-secondary justify-content-md-end" style="border-radius:0%"
+					<div class="adj">
+					<button class="btn btn-secondary justify-content-md-end newbtn" style="border-radius:0%"
 						data-toggle="modal" data-target="#addRecord">Add Record</button>
-
+					</div>
 					<div class="panel-body">
 
 						<table class="table table-striped table-bordered table-responsive" cellspacing="0" width="100%"
