@@ -13,7 +13,7 @@ if (isset($_SESSION['user_email'])) {
 }
 
 include_once "header.php";
-
+// require_once "blueprint.php";
 
 if (isset($_GET['home'])) {
     include_once 'home.php';
@@ -25,7 +25,11 @@ if (isset($_GET['home'])) {
     include_once 'manage-records.php';
 } else if (isset($_GET['logout'])) {
     include_once "logout.php";
-} else {
+} 
+else if (isset($_GET['logout'])) {
+    include_once "logout.php";
+}
+else {
     include_once 'manage-records.php';
 }
 
