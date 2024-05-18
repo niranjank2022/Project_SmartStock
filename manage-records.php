@@ -8,8 +8,7 @@
 			margin: 0px 30px 0px 50px;
 		 }
 	     .newbtn{
-			
-			text-align: center;
+			margin: 5px 2px 0px 54%;
 		 }
 		 .tit{
 			text-align: center;
@@ -25,7 +24,7 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<div class="adj">
-					<button class="btn btn-secondary justify-content-md-end newbtn" style="border-radius:0%"
+					<button class="btn btn-secondary justify-content-md-end" style="border-radius:0%"
 						data-toggle="modal" data-target="#addRecord">Add Record</button>
 					</div>
 					<div class="panel-body">
@@ -78,8 +77,8 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<h4 class="modal-title">Add New Record</h4>
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
 
+					<button type="button" class="close newbtn" data-dismiss="modal">&times;</button>
 				</div>
 				<div class="modal-body">
 					<div class="row">
