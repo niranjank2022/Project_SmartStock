@@ -61,5 +61,5 @@ if (isset($_POST['login'])) {
         mysqli_query($connection, $query);
     }
 
-    header('Location:add-records.php');
+    header('Location:manage-records.php');
 }
