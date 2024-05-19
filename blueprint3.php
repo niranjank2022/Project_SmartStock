@@ -114,7 +114,7 @@ box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     <div class="lab h">
       <h3>THIRD FLOOR LAB</h3>
       <div class="info-tab">
-      <h3>Research scholar lab:-</h3>
+      <h3>THIRD FLOOR LAB:-</h3>
       <p>Chairs:</p>
       <p>Tables:</p>
       <p>Lights:</p>
@@ -128,7 +128,7 @@ box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     <div class="box r h">
       <h3>Class room</h3>
       <div class="info-tab">
-      <h3>Research scholar lab:-</h3>
+      <h3>Class room:-</h3>
       <p>Chairs:</p>
       <p>Tables:</p>
       <p>Lights:</p>
@@ -142,7 +142,7 @@ box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     <div class="box cpu h">
       <h3>CPU lab</h3>
       <div class="info-tab">
-      <h3>Research scholar lab:-</h3>
+      <h3>CPU lab:-</h3>
       <p>Chairs:</p>
       <p>Tables:</p>
       <p>Lights:</p>
@@ -168,9 +168,9 @@ box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
       <!-- Add staff cabin content here -->
     </div>
     <div class="box cabin h">
-      <h3>Staffs' Cabin</h3>
+      <h3>Staff's Cabin</h3>
       <div class="info-tab">
-      <h3>Research scholar lab:-</h3>
+      <h3>Staff's Cabin:-</h3>
       <p>Chairs:</p>
       <p>Tables:</p>
       <p>Lights:</p>
@@ -184,7 +184,7 @@ box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     <div class="box staff1 h">
       <h3>Staff room 1</h3>
       <div class="info-tab">
-      <h3>Research scholar lab:-</h3>
+      <h3>Staff room 1:-</h3>
       <p>Chairs:</p>
       <p>Tables:</p>
       <p>Lights:</p>
@@ -198,7 +198,7 @@ box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     <div class="box staff2 h">
       <h3>Staff room 2</h3>
       <div class="info-tab">
-      <h3>Research scholar lab:-</h3>
+      <h3>Staff room 2:-</h3>
       <p>Chairs:</p>
       <p>Tables:</p>
       <p>Lights:</p>
@@ -212,7 +212,7 @@ box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     <div class="box staff3 h">
       <h3>Staff room 3</h3>
       <div class="info-tab">
-      <h3>Research scholar lab:-</h3>
+      <h3>Staff room 3:-</h3>
       <p>Chairs:</p>
       <p>Tables:</p>
       <p>Lights:</p>

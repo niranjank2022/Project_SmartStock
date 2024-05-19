@@ -105,7 +105,7 @@
     <div class="lab h">
       <h3>SECOND FLOOR LAB</h3>
       <div class="info-tab">
-      <h3>Research scholar lab:-</h3>
+      <h3>SECOND FLOOR LAB:</h3>
       <p>Chairs:</p>
       <p>Tables:</p>
       <p>Lights:</p>
@@ -119,7 +119,7 @@
     <div class="box r h">
       <h3>Class room</h3>
       <div class="info-tab">
-      <h3>Research scholar lab:-</h3>
+      <h3>Class room:-</h3>
       <p>Chairs:</p>
       <p>Tables:</p>
       <p>Lights:</p>
@@ -133,7 +133,7 @@
     <div class="box cpu h">
       <h3>CPU lab</h3>
       <div class="info-tab">
-      <h3>Research scholar lab:-</h3>
+      <h3>CPU lab:-</h3>
       <p>Chairs:</p>
       <p>Tables:</p>
       <p>Lights:</p>
@@ -159,9 +159,9 @@
       <!-- Add staff cabin content here -->
     </div>
     <div class="box cabin h">
-      <h3>Staffs' Cabin</h3>
+      <h3>Staff's Cabin</h3>
       <div class="info-tab">
-      <h3>Research scholar lab:-</h3>
+      <h3>Staff's Cabin:-</h3>
       <p>Chairs:</p>
       <p>Tables:</p>
       <p>Lights:</p>
@@ -175,7 +175,7 @@
     <div class="box staff1 h">
       <h3>Staff room 1</h3>
       <div class="info-tab">
-      <h3>Research scholar lab:-</h3>
+      <h3>Staff room 1:-</h3>
       <p>Chairs:</p>
       <p>Tables:</p>
       <p>Lights:</p>
@@ -189,7 +189,7 @@
     <div class="box staff2 h">
       <h3>Staff room 2</h3>
       <div class="info-tab">
-      <h3>Research scholar lab:-</h3>
+      <h3>Staff room 2:-</h3>
       <p>Chairs:</p>
       <p>Tables:</p>
       <p>Lights:</p>
@@ -203,7 +203,7 @@
     <div class="box staff3 h">
       <h3>Staff room 3</h3>
       <div class="info-tab">
-      <h3>Research scholar lab:-</h3>
+      <h3>Staff room 3:-</h3>
       <p>Chairs:</p>
       <p>Tables:</p>
       <p>Lights:</p>
@@ -215,9 +215,9 @@
       <!-- Add staff cabin content here -->
     </div>
     <div class="box staff4 h">
-      <h3>Staff room 3</h3>
+      <h3>Staff room 4</h3>
       <div class="info-tab">
-      <h3>Research scholar lab:-</h3>
+      <h3>Staff room 4:-</h3>
       <p>Chairs:</p>
       <p>Tables:</p>
       <p>Lights:</p>

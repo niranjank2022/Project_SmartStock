@@ -45,19 +45,34 @@
     }
 	.new,.lab{
 		transition: transform .2s;
+        display: flex;
+        flex-direction: column;
+
 	} 
+    .das_img{
+        background-position:center;
+        margin-left: 20%;
+        
+        
+    }
 </style>
 <body>
    
 <div class="main">
     <div class="Chair new">
          <p>Chair</p>
-    </div>
-    <div class="Table new">
-        <p>Table</p>
-    </div>
+         <img  class="das_img" src="./assets/chair1.jpeg" alt="" height=100 width=150>
+         <p>count</p>
+        </div>
+        <div class="Table new">
+            <p>Table</p>
+            <img  class="das_img" src="./assets/table.jpeg" alt="" height=100 width=150>
+            <p>count</p>
+        </div>
     <div class="labu">
         <p>System</p>
+        <!-- <img  class="das_img" src="system.webp" alt="" height=100 width=150>
+            <p>count</p> -->
         <div class="innner">
             <div class="lab 0">
             <p>Gnd floor lab</p>
@@ -71,19 +86,29 @@
             <div class="lab 3">
             <p>3rd floor lab</p>
             </div>
+            
         </div>
     </div>
-    <div class="lights new">
+    <div class="lights new"  >
         <p>Lights</p>
+        <img  class="das_img" src="./assets/light.jpeg" alt="" height=100 width=150>
+            <p>count</p>
+        <!-- <img src="https://t3.ftcdn.net/jpg/00/61/61/48/360_F_61614823_QvthiFZ6WVDeSovaZCCsPig4spWu6qjM.jpg" alt="" height="100" width="150"> -->
     </div>
     <div class="noticeboard new">
         <p>Notice Board</p>
+        <img  class="das_img" src="./assets/bulletin_board.jpg" alt="" height=100 width=150>
+            <p>count</p>
     </div>
-    <div class="Complaints new">
+    <div class="Complaints new" >
         <p>Complaints</p>
+        <img  class="das_img" src="./assets/cmpl.jpg" alt="" height=100 width=150>
+            <p>count</p>
     </div>
     <div class="amt new">
         <p>&#8377;Amount spent</p>
+        <img  class="das_img" src="./assets/amt1.jpg" alt="" height=100 width=150>
+            <p>count</p>
     </div>
     <div class="labu">
         <p>Stocks in staff room</p>

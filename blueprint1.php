@@ -103,30 +103,81 @@
 </head>
 <body>
   <div class="floor-plan">
-    <div class="box staff4">
+    <div class="box staff4 h">
       <h3>Staff room 4</h3>
+      <div class="info-tab">
+      <h3>Staff room 4:</h3>
+      <p>Chairs:</p>
+      <p>Tables:</p>
+      <p>Lights:</p>
+      <p>Fan:</p>
+      <p>AC:</p>
+      <p>System:</p>
+      <p>Prjector:</p>
+      </div>   
       <!-- Add staff cabin content here -->
     </div>
-    <div class="lab">
+    <div class="lab h">
       <h3>FIRST FLOOR LAB</h3>
+      <div class="info-tab">
+      <h3>FIRST FLOOR LAB:</h3>
+      <p>Chairs:</p>
+      <p>Tables:</p>
+      <p>Lights:</p>
+      <p>Fan:</p>
+      <p>AC:</p>
+      <p>System:</p>
+      <p>Prjector:</p>
+      </div>   
       <!-- Add lab content here -->
     </div>
-    <div class="box r">
+    <div class="box r h">
       <h3>Class room</h3>
+      <div class="info-tab">
+      <h3>Class room:</h3>
+      <p>Chairs:</p>
+      <p>Tables:</p>
+      <p>Lights:</p>
+      <p>Fan:</p>
+      <p>AC:</p>
+      <p>System:</p>
+      <p>Prjector:</p>
+      </div>   
       <!-- Add staff cabin content here -->
     </div>
-    <div class="box cpu">
+    <div class="box cpu h">
       <h3>CPU lab</h3>
+      <div class="info-tab">
+      <h3>CPU lab:</h3>
+      <p>Chairs:</p>
+      <p>Tables:</p>
+      <p>Lights:</p>
+      <p>Fan:</p>
+      <p>AC:</p>
+      <p>System:</p>
+      <p>Prjector:</p>
+      </div>   
       <!-- Add staff cabin content here -->
     </div>
     <div class="box scholars h">
       <h3>DEPARTMENT LIBRARY</h3>
+      <div class="info-tab">
+      <h3>DEPARTMENT LIBRARY:</h3>
+      <p>Chairs:</p>
+      <p>Tables:</p>
+      <p>Lights:</p>
+      <p>Fan:</p>
+      <p>AC:</p>
+      <p>System:</p>
+      <p>Prjector:</p>
+      </div>   
       <!-- Add staff cabin content here -->
     </div>
     <div class="box cabin h">
       <h3>HOD ROOM</h3>
+      
       <div class="info-tab">
-      <h3>Research scholar lab:-</h3>
+      <h3>HOD ROOM:-</h3>
       <p>Chairs:</p>
       <p>Tables:</p>
       <p>Lights:</p>
@@ -137,16 +188,47 @@
       </div>  
       <!-- Add staff cabin content here -->
     </div>
-    <div class="box staff1">
+    <div class="box staff1 h">
       <h3>Staff room 1</h3>
+      <div class="info-tab">
+      <h3>Staff room 1:-</h3>
+      <p>Chairs:</p>
+      <p>Tables:</p>
+      <p>Lights:</p>
+      <p>Fan:</p>
+      <p>AC:</p>
+      <p>System:</p>
+      <p>Prjector:</p>
+      </div>  
+
       <!-- Add staff cabin content here -->
     </div>
-    <div class="box staff2">
+    <div class="box staff2 h">
       <h3>Staff room 2</h3>
+      <div class="info-tab">
+      <h3>Staff room 2:-</h3>
+      <p>Chairs:</p>
+      <p>Tables:</p>
+      <p>Lights:</p>
+      <p>Fan:</p>
+      <p>AC:</p>
+      <p>System:</p>
+      <p>Prjector:</p>
+      </div>  
       <!-- Add staff cabin content here -->
     </div>
-    <div class="box staff3">
+    <div class="box staff3 h">
       <h3>Staff room 3</h3>
+      <div class="info-tab">
+      <h3>Staff room 3:-</h3>
+      <p>Chairs:</p>
+      <p>Tables:</p>
+      <p>Lights:</p>
+      <p>Fan:</p>
+      <p>AC:</p>
+      <p>System:</p>
+      <p>Prjector:</p>
+      </div>  
       <!-- Add staff cabin content here -->
     </div>
     <!-- Add other elements as needed -->
