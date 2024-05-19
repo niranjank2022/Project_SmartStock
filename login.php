@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+    <link rel="stylesheet" href="./css/login.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
 </head>
 
@@ -15,30 +16,26 @@
                 ?>
         </div>
         <div class="login-container">
-            <form action="action.php" method="POST">
-                <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-
-                <div class="form-floating">
-                    <input name="email"  type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                    <label for="floatingInput">Email address</label>
+        <div class="header">
+            <h1>Smart Stock</h1>
+        </div>
+        <div class="login-box">
+            <h2>Login</h2>
+            <form action="action.php" method="post">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="email" required>
                 </div>
-                <div class="form-floating">
-                    <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                    <label for="floatingPassword">Password</label>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
                 </div>
-
-                <div class="form-check text-start my-3">
-                    <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Remember me
-                    </label>
-                </div>
-                <button class="btn btn-primary w-100 py-2" type="submit" name="login">LOG IN</button>
+                <button type="submit" name="login">Login</button>
+                <p class="signup-link">Don't have an account? <a href="#">Sign up</a></p>
             </form>
         </div>
-
+    </div>
         <script src="./js/bootstrap.min/js"></script>
         <script src="./js/bootstrap.bundle.min.js"></script>
     </body>
-
     </html>

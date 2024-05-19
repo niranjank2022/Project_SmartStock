@@ -107,61 +107,55 @@
 
 			<!-- Modal content-->
 			<div class="modal-content">
-				<div class="modal-header">
-					<h4 class="modal-title">Add New Record</h4>
+			<div class="modal-header">
+				<h4 class="modal-title">Add New Record</h4>
 
-					<button type="button" class="close newbtn" data-dismiss="modal">&times;</button>
+				<button type="button" class="close newbtn" data-dismiss="modal">&times;</button>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-lg-12">
+						<form id="addRecordForm" data-toggle="validator" role="form" action="action.php" method="POST">
+			<div class="response"></div>
+			<div class="form-group">
+				<label for="item-name">Item Name: </label>
+				<input name="item-name" type="text" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="item-description">Item Description: </label>
+				<input name="item-description" type="text" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="purchase-year">Purchase Year: </label>
+				<input name="purchase-year" type="text" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="purchase-value">Purchase Value: </label>
+				<input name="purchase-value" type="text" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="depr-rate">Depreciation Rate: </label>
+				<input name="depr-rate" type="text" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="no-of-items">No. of Items: </label>
+				<input name="no-of-items" type="text" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="location">Location: </label>
+				<input name="location" type="text" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="condition">Condition: </label>
+				<select name="condition" id="condition">
+					<option value="New">New</option>
+					<option value="Old">Damaged</option>
+					<option value="Not Working">Not Working</option>
+				</select>
 				</div>
-				<div class="modal-body">
-					<div class="row">
-						<div class="col-lg-12">
-							<form id="addRecordForm" data-toggle="validator" role="form" action="action.php"
-								method="POST">
-								<div class="response"></div>
-								<div class="form-group">
-									<label for="item-name">Item Name: </label>
-									<input id="item-name" type="text" class="form-control">
-								</div>
-								<div class="form-group">
-									<label for="item-description">Item Description: </label>
-									<input name="item-description" type="text" class="form-control">
-								</div>
-								<div class="form-group">
-									<label for="purchase-year">Purchase Year: </label>
-									<input name="purchase-year" type="text" class="form-control">
-								</div>
-								<div class="form-group">
-									<label for="purchase-value">Purchase Value: </label>
-									<input name="purchase-value" type="text" class="form-control">
-								</div>
-								<div class="form-group">
-									<label for="depr-rate">Depreciation Rate: </label>
-									<input name="depr-rate" type="text" class="form-control">
-								</div>
-								<div class="form-group">
-									<label for="no-of-items">No. of Items: </label>
-									<input name="no-of-items" type="text" class="form-control">
-								</div>
-								<div class="form-group">
-									<label for="location">Location: </label>
-									<input name="location" type="text" class="form-control">
-								</div>
-								<div class="form-group">
-									<label for="condition">Condition: </label>
-									<select name="condition" id="condition">
-										<option value="New">New</option>
-										<option value="Old">Damaged</option>
-										<option value="Not Working">Not Working</option>
-									</select>
-								</div>
-								<br>
-								<button name="add-record" type="Submit" class="btn btn-success pull-right">Add
-									Record</button>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="modal-footer">
+			<br>
+						<button name="add-record" type="Submit" class="btn btn-success pull-right">Add Record</button>
+					</form>
 				</div>
 			</div>
 		</div>
