@@ -9,7 +9,25 @@
     body {
       font-family: Arial, sans-serif;
     }
+    .info-tab {
+      display: none;
+      transform: translate(120%,-40%);
+      position: absolute;
+      z-index: 999;
+      background-color:#A9A9A9;
+      color: #fff;
+      font-size: larger;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.h:hover .info-tab {
+    display: block;
+}
+
     .floor-plan {
+      cursor: pointer;
       position: relative;
       width: 800px;
       height: 400px;
@@ -101,12 +119,22 @@
       <h3>CPU lab</h3>
       <!-- Add staff cabin content here -->
     </div>
-    <div class="box scholars">
+    <div class="box scholars h">
       <h3>DEPARTMENT LIBRARY</h3>
       <!-- Add staff cabin content here -->
     </div>
-    <div class="box cabin">
+    <div class="box cabin h">
       <h3>HOD ROOM</h3>
+      <div class="info-tab">
+      <h3>Research scholar lab:-</h3>
+      <p>Chairs:</p>
+      <p>Tables:</p>
+      <p>Lights:</p>
+      <p>Fan:</p>
+      <p>AC:</p>
+      <p>System:</p>
+      <p>Prjector:</p>
+      </div>  
       <!-- Add staff cabin content here -->
     </div>
     <div class="box staff1">

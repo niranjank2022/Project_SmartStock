@@ -10,6 +10,7 @@
       font-family: Arial, sans-serif;
     }
     .floor-plan {
+      cursor: pointer;
       position: relative;
       width: 800px;
       height: 400px;
