@@ -12,7 +12,7 @@ if (isset($_POST['login'])) {
         $user_data = mysqli_fetch_assoc($result);
         $_SESSION['user_email'] = $user_data['email'];
         $_SESSION['user_id'] = $user_data['user_id'];
-        header('Location:index.php?dashboard');
+        header('Location:index.php?home');
     } else {
         header('Location:login.php?loginE');
     }
