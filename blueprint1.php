@@ -14,7 +14,7 @@
       transform: translate(120%,-40%);
       position: absolute;
       z-index: 999;
-      background-color:#A9A9A9;
+      background-color: #696969	;
       color: #fff;
       font-size: larger;
       padding: 10px;
@@ -98,10 +98,13 @@
         height: 80px;
         width: 262px;
     }
+    .main{
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+}
     /* Add other elements and styling as needed */
   </style>
 </head>
-<body>
+<body class="main">
   <div class="floor-plan">
     <div class="box staff4 h">
       <h3>Staff room 4</h3>
