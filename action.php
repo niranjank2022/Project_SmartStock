@@ -1,6 +1,7 @@
 <?php
 include_once "database.php";
 session_start();
+error_reporting(~E_ALL & ~E_NOTICE & ~E_DEPRECATED);
 
 if (isset($_POST['login'])) {
     $email = $_POST['email'];
@@ -16,7 +17,9 @@ if (isset($_POST['login'])) {
     } else {
         header('Location:login.php?loginE');
     }
-} else if (isset($_POST['add-record'])) {
+}
+
+if (isset($_POST['add-record'])) {
     $item_name = $_POST['item-name'];
     $desc = $_POST['item-description'];
     $year = $_POST['purchase-year'];
@@ -29,17 +32,16 @@ if (isset($_POST['login'])) {
     $query = "SELECT * FROM items_info WHERE item_name = '$item_name'";
     if (mysqli_num_rows(mysqli_query($connection, $query)) >= 1) {
         // Shouldnt be present
-    }
-    else {
-                
+    } else {
+
         $query = "INSERT INTO items_info(item_name, description, depreciation_rate, purchase_year, purchase_value) 
             VALUES('$item_name', '$desc', $depr_rate, $year, $value)";
         mysqli_query($connection, $query);
-        
+
     }
 
     $query = "SELECT * FROM location WHERE location_name = '$location'";
-    if (mysqli_num_rows(mysqli_query($connection, $query)) == 0 ) {
+    if (mysqli_num_rows(mysqli_query($connection, $query)) == 0) {
         $query = "INSERT INTO location(location_name) VALUES ('$location')";
         mysqli_query($connection, $query);
 
@@ -55,11 +57,38 @@ if (isset($_POST['login'])) {
     $query = "SELECT * FROM availability WHERE item_id = $item_id AND location_id = $location_id";
     if (mysqli_num_rows(mysqli_query($connection, $query)) >= 1) {
         // Shouldnt be present
-    }
-    else {        
+    } else {
         $query = "INSERT INTO availability VALUES ($item_id, $location_id, $no_of_items, '$condition')";
         mysqli_query($connection, $query);
     }
 
-    header('Location:manage-records.php');
+    header('Location:index.php?manage-records');
+}
+
+if (isset($_POST['item_id'])) {
+
+    $item_id = intval($_POST['item_id']);
+    $query = "SELECT * FROM items_info NATURAL JOIN availability NATURAL JOIN location WHERE item_id=$item_id";
+    $result = mysqli_query($connection, $query);
+    if ($result) {
+        $data = mysqli_fetch_assoc($result);
+        $response = array(
+            'done' => true,
+            'item_name' => $data['item_name'],
+            'description' => $data['description'],
+            'depr_rate' => $data['depreciation_rate'],
+            'year' => $data['purchase_year'],
+            'price' => $data['purchase_value'],
+            'location' => $data['location_name'],
+            'no_of_items' => $data['no_of_items'],
+            'condition' => $data['condition']
+        );
+    } else {
+        $response = array(
+            'done' => false,
+            'result' => 'Database Error'
+        );
+    }
+
+    echo json_encode($response);
 }
