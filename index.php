@@ -20,8 +20,6 @@ if (isset($_GET['home'])) {
     include_once 'home.php';
 } else if (isset($_GET['dashboard'])) {
     include_once 'dashboard.php';
-} else if (isset($_GET['add-records'])) {
-    include_once 'add-records.php';
 } else if (isset($_GET['manage-records'])) {
     include_once 'manage-records.php';
 } else if (isset($_GET['logout'])) {

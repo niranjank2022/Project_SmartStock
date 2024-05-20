@@ -120,7 +120,7 @@
 								<div class="response"></div>
 								<div class="form-group">
 									<label for="item-name">Item Name: </label>
-									<input id="item-name" type="text" class="form-control">
+									<input name="item-name" type="text" class="form-control">
 								</div>
 								<div class="form-group">
 									<label for="item-description">Item Description: </label>
@@ -183,45 +183,47 @@
 						<form id="editRecordForm" data-toggle="validator" role="form" action="action.php" method="POST">
 							<div class="edit_response"></div>
 							<div class="response"></div>
-
+							
 							<div class="form-group">
 								<label>Item Name: </label>
-								<input id="edit-item-name" type="text" class="form-control">
+								<span id="display-item-name"></span>
+								<input id="edit-item-id" name="edit-item-id" type="hidden" class="form-control">
+								<input id="edit-item-name" name="edit-item-name" type="hidden" class="form-control">
 							</div>
 							<div class="form-group">
 								<label>Item Description: </label>
-								<input id="edit-item-description" type="text" class="form-control">
+								<input id="edit-item-description" name="edit-item-description" type="text" class="form-control">
 							</div>
 							<div class="form-group">
 								<label>Purchase Year: </label>
-								<input id="edit-purchase-year" type="text" class="form-control">
+								<input id="edit-purchase-year" name="edit-purchase-year" type="text" class="form-control">
 							</div>
 							<div class="form-group">
 								<label>Purchase Value: </label>
-								<input id="edit-purchase-value" type="text" class="form-control">
+								<input id="edit-purchase-value" name="edit-purchase-value" type="text" class="form-control">
 							</div>
 							<div class="form-group">
 								<label>Depreciation Rate: </label>
-								<input id="edit-depr-rate" type="text" class="form-control">
+								<input id="edit-depr-rate" name="edit-depr-rate" type="text" class="form-control">
 							</div>
 							<div class="form-group">
 								<label>No. of Items: </label>
-								<input id="edit-no-of-items" type="text" class="form-control">
+								<input id="edit-no-of-items" name="edit-no-of-items" type="text" class="form-control">
 							</div>
 							<div class="form-group">
 								<label>Location: </label>
-								<input id="edit-location" type="text" class="form-control">
+								<input id="edit-location" name="edit-location" type="text" class="form-control">
 							</div>
 							<div class="form-group">
 								<label>Condition: </label>
-								<select id="edit-condition">
+								<select id="edit-condition" name="edit-condition">
 									<option value="New">New</option>
 									<option value="Old">Damaged</option>
 									<option value="Not Working">Not Working</option>
 								</select>
 							</div>
 							<br>
-							<button class="btn btn-success pull-right">Save</button>
+							<button name="edit-record" class="btn btn-success pull-right" type="Submit">Save</button>
 						</form>
 					</div>
 				</div>
@@ -240,7 +242,7 @@
 		</li>
 		<li>
 			<a href="blueprint1.php" class="lab">
-				FRIST FLOOR
+				FIRST FLOOR
 			</a>
 		</li>
 		<li>
