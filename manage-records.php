@@ -275,22 +275,22 @@
 	<div class="select_lab">
 		<p class="name">Please select the floor below to view the stocks</p>
 		<li class="nope">
-			<a href="blueprint0.php" class="lab">
+			<a href="index.php?floor0" class="lab">
 				GROUND FLOOR
 			</a>
 		</li>
 		<li>
-			<a href="blueprint1.php" class="lab">
+			<a href="index.php?floor1" class="lab">
 				FIRST FLOOR
 			</a>
 		</li>
 		<li>
-			<a href="blueprint2.php" class="lab">
+			<a href="index.php?floor2" class="lab">
 				SECOND FLOOR
 			</a>
 		</li>
 		<li>
-			<a href="blueprint3.php" class="lab">
+			<a href="index.php?floor3" class="lab">
 				THIRD FLOOR
 			</a>
 		</li>
