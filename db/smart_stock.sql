@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2024 at 10:49 AM
+-- Generation Time: May 21, 2024 at 02:03 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -25,6 +25,27 @@ DELIMITER $$
 --
 -- Functions
 --
+CREATE DEFINER=`root`@`localhost` FUNCTION `calculateTotalCount` (`itemID` INT) RETURNS INT(11)  BEGIN
+    DECLARE total INT DEFAULT 0;
+    
+    SET total := calculateTotalWorkingCount(itemID) + calculateTotalDefectCount(itemID);
+
+    -- Return the total count
+    RETURN total;
+END$$
+
+CREATE DEFINER=`root`@`localhost` FUNCTION `calculateTotalDefectCount` (`itemID` INT) RETURNS INT(11)  BEGIN
+    DECLARE total INT DEFAULT 0;
+    
+    -- Calculate the total working count for the given itemID
+    SELECT COALESCE(SUM(count_defect), 0) INTO total 
+    FROM tracker 
+    WHERE item_id = itemID;
+
+    -- Return the total count
+    RETURN total;
+END$$
+
 CREATE DEFINER=`root`@`localhost` FUNCTION `calculateTotalWorkingCount` (`itemID` INT) RETURNS INT(11)  BEGIN
     DECLARE total INT DEFAULT 0;
     
@@ -80,8 +101,9 @@ CREATE TABLE `items` (
 --
 
 INSERT INTO `items` (`item_id`, `item_name`, `item_description`, `item_purchase_price`, `item_purchase_year`, `item_depreciation_rate`) VALUES
-(1, 'Air Conditioner', 'BlueStar 5-star rated', 85000, '2023', 12),
-(3, 'Tube Light', 'Havells LED', 6500, '2022', 13);
+(7, 'Table', 'Four-legged', 1000, '2012', 17),
+(8, 'AC', 'Onida 3 star', 125000, '2022', 21),
+(9, 'Desktop', 'Intel systems', 200000, '2012', 21);
 
 -- --------------------------------------------------------
 
@@ -187,8 +209,8 @@ CREATE TABLE `tracker` (
 --
 
 INSERT INTO `tracker` (`location_id`, `item_id`, `count_working`, `count_defect`) VALUES
-(3, 3, 37, 3),
-(1, 3, 20, 2);
+(2, 7, 13, 4),
+(3, 7, 10, 10);
 
 --
 -- Indexes for dumped tables
@@ -246,7 +268,7 @@ ALTER TABLE `tracker`
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `items_info`
