@@ -116,8 +116,10 @@
 								method="POST">
 								<div class="response"></div>
 								<div class="form-group">
-									<label for="location">Location: </label>
-									<select name="location-id">
+									<label>Location: </label>
+									<select class="form-control" name="location-id" id="location_id" required
+										data-error="Select Room Type">
+										<option selected disabled>Select Location</option>
 										<?php
 										$query = "SELECT * FROM locations ORDER BY location_name";
 										$result = mysqli_query($connection, $query);
@@ -128,9 +130,9 @@
 									</select>
 								</div>
 								<div class="form-group">
-									<label for="item-id">Item Name: </label>
+									<label>Item Name: </label>
 									<select name="item-id" id="item-id">
-										<option value="">Select Item Name</option>
+										<option selected disabled>Select Item Name</option>
 										<?php
 										$query = "SELECT item_id, item_name FROM items ORDER BY item_name";
 										$result = mysqli_query($connection, $query);
@@ -144,10 +146,16 @@
 								<div id="new-item-content">
 
 								</div>
-								<div class="form-group"><label for="count-working">Count of Working: </label><input
-										name="count-working" type="text" class="form-control"></div>
-								<div class="form-group"><label for="count-defect">Count of Defect: </label><input
-										name="count-defect" type="text" class="form-control"></div>
+								<div class="form-group">
+									<label>Count of Working: </label>
+									<input name="count-working" type="text" class="form-control"
+										data-error="Enter Count of Working" placeholder="Count of Working" required>
+								</div>
+								<div class="form-group">
+									<label>Count of Defect: </label>
+									<input name="count-defect" type="text" class="form-control"
+										data-error="Enter Count of Defect" placeholder="Count of Defect" required>
+								</div>
 								<br>
 								<button name="add-record" type="Submit" class="btn btn-success pull-right">Add
 									Record</button>

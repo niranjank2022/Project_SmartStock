@@ -20,36 +20,40 @@ if (isset($_POST['login'])) {
 }
 
 if (isset($_POST['add-record'])) {
+
+    $item_id = $_POST['item-id'];
+    $location_id = $_POST['location-id'];
+    $working = $_POST['count-working'];
+    $defect = $_POST['count-defect'];
+
     if ($_POST['item-id'] != -1) {
-
-        $location_id = $_POST['location-id'];
-        $item_id = $_POST['item-id'];
-        $working = $_POST['count-working'];
-        $defect = $_POST['count-defect'];
-
-        $query = "SELECT * FROM tracker WHERE location_id = $location_id AND item_id = $item_id";
+        $query = "SELECT * FROM tracker WHERE location_id = '$location_id' AND item_id = '$item_id'";
         $result = mysqli_query($connection, $query);
-        if ($result) {
-            $row = mysqli_fetch_assoc($result);
-            $working += $row['count-working'];
-            $defect += $row['count-defect'];
+        if (mysqli_num_rows($result) >= 1) {
+            $query = "UPDATE tracker SET count_working = count_working + $working, count_defect = count_defect + $defect WHERE location_id = '$location_id' AND item_id = '$item_id';";
+            $result = mysqli_query($connection, $query);
+        } else {
+            $query = "INSERT INTO tracker VALUES ('$location_id', '$item_id', '$working', '$defect');";
+            $result = mysqli_query($connection, $query);
         }
     } else {
         $item_name = $_POST['item-name'];
-        $location_id = $_POST['location-id'];
-        $item_id = $_POST['item-id'];
         $desc = $_POST['item-description'];
         $year = $_POST['purchase-year'];
         $value = $_POST['purchase-value'];
         $depr_rate = $_POST['depr-rate'];
 
-        $query = "INSERT INTO items(item_name, item_description, item_depreciation_rate, item_purchase_year, item_purchase_price) 
-            VALUES('$item_name', '$desc', $depr_rate, $year, $value)";
-        mysqli_query($connection, $query);
-    }
+        $query = "INSERT INTO items(item_name, item_description, item_depreciation_rate, item_purchase_year, item_purchase_price) VALUES ('$item_name', '$desc', '$depr_rate', '$year', '$value')";
+        $result = mysqli_query($connection, $query);
 
-    $query = "INSERT INTO tracker VALUES ($location_id, $item_id, $working, $defect);";
-    mysqli_query($connection, $query);
+        $query = "SELECT item_id FROM items WHERE item_name = '$item_name'";
+        $result = mysqli_query($connection, $query);
+        $data = mysqli_fetch_assoc($result);
+        $item_id = $data['item_id'];
+
+        $query = "INSERT INTO tracker VALUES ('$location_id', $item_id, '$working', '$defect');";
+        $result = mysqli_query($connection, $query);
+    }
 
     header('Location:index.php?manage-records');
 }
