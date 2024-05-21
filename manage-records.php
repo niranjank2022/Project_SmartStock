@@ -187,10 +187,8 @@
 							<div class="response"></div>
 
 							<div class="form-group">
-								<label>Item Name: </label>
-								<span id="display-edit-item-name"></span>
+								<label id="display-edit-item-name"></label>
 								<input id="edit-item-id" name="edit-item-id" type="hidden" class="form-control">
-								<input id="edit-item-name" name="edit-item-name" type="hidden" class="form-control">
 							</div>
 							<div class="form-group">
 								<label>Item Description: </label>
@@ -212,20 +210,18 @@
 								<input id="edit-depr-rate" name="edit-depr-rate" type="text" class="form-control">
 							</div>
 							<div class="form-group">
-								<label>No. of Items: </label>
-								<input id="edit-no-of-items" name="edit-no-of-items" type="text" class="form-control">
-							</div>
-							<div class="form-group">
 								<label>Location: </label>
-								<input id="edit-location" name="edit-location" type="text" class="form-control">
+								<select name="edit-location-name" id="edit-location-name">
+									
+								</select>
 							</div>
 							<div class="form-group">
-								<label>Condition: </label>
-								<select id="edit-condition" name="edit-condition">
-									<option value="New">New</option>
-									<option value="Old">Damaged</option>
-									<option value="Not Working">Not Working</option>
-								</select>
+								<label>Count of Working: </label>
+								<input id="edit-count-working" name="edit-count-working" type="text" class="form-control">
+							</div>
+							<div class="form-group">
+								<label>Count of Defect: </label>
+								<input id="edit-count-defect" name="edit-count-defect" type="text" class="form-control">
 							</div>
 							<br>
 							<button name="edit-record" class="btn btn-success pull-right" type="Submit">Save</button>
@@ -251,23 +247,14 @@
 					<div class="col-lg-12">
 						<form id="deleteRecordForm" data-toggle="validator" role="form" action="action.php"
 							method="POST">
-							<div class="response"></div>
+							<div class="delete-response"></div>
 							<div class="form-group">
-								<label>Item Name: </label>
-								<span id="display-delete-item-name"></span>
+								<label id="display-delete-item-name"></label>
 								<input id="delete-item-id" name="delete-item-id" type="hidden" class="form-control">
 							</div>
 							<div class="form-group">
 								<label for="delete-location-name">Select Location: </label>
 								<select name="delete-location-name" id="delete-location-name">
-									<?php
-									$query = "SELECT location_name FROM locations ORDER BY location_name";
-									$result = mysqli_query($connection, $query);
-									while ($row = mysqli_fetch_assoc($result)) {
-										echo "<option value='" . $row['location_id'] . "'>" . $row['location_name'] . "</option>";
-									}
-									?>
-									<option value="-1">All locations</option>
 								</select>
 							</div>
 

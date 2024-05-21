@@ -60,28 +60,35 @@ if (isset($_POST['add-record'])) {
 
 if (isset($_POST['editItem'])) {
 
-    $item_id = intval($_POST['item_id']);
-    $query = "SELECT * FROM items_info NATURAL JOIN availability NATURAL JOIN location WHERE item_id=$item_id";
+    $item_id = $_POST['item_id'];
+    $query = "SELECT * FROM items WHERE item_id = '$item_id'";
     $result = mysqli_query($connection, $query);
+    $data = mysqli_fetch_assoc($result);
+
+    $response = [];
+    $response['item_id'] = $item_id;
+    $response['item_name'] = $data['item_name'];
+    $response['description'] = $data['item_description'];
+    $response['year'] = $data['item_purchase_year'];
+    $response['price'] = $data['item_purchase_price'];
+    $response['depr_rate'] = $data['item_depreciation_rate'];
+
+    $query = "SELECT * FROM tracker NATURAL JOIN locations WHERE item_id = '$item_id'";
+    $result = mysqli_query($connection, $query);
+
     if ($result) {
-        $data = mysqli_fetch_assoc($result);
-        $response = array(
-            'done' => true,
-            'item_id' => $item_id,
-            'item_name' => $data['item_name'],
-            'description' => $data['description'],
-            'depr_rate' => $data['depreciation_rate'],
-            'year' => $data['purchase_year'],
-            'price' => $data['purchase_value'],
-            'location' => $data['location_name'],
-            'no_of_items' => $data['no_of_items'],
-            'condition' => $data['curr_condition']
-        );
+        $options = [];
+        while ($row = mysqli_fetch_assoc($result)) {
+            $options[] = [
+                'location_id' => $row['location_id'],
+                'location_name' => $row['location_name']
+            ];
+        }
+        $response['done'] = true;
+        $response['options'] = $options;
     } else {
-        $response = array(
-            'done' => false,
-            'result' => 'Database Error'
-        );
+        $response['done'] = false;
+        $response['result'] = 'Database Error';
     }
 
     echo json_encode($response);
@@ -89,15 +96,28 @@ if (isset($_POST['editItem'])) {
 
 if (isset($_POST['deleteItem'])) {
 
-    $item_id = intval($_POST['item_id']);
-    $query = "SELECT * FROM items WHERE item_id = $item_id";
+    $item_id = $_POST['item_id'];
+    $query = "SELECT * FROM items WHERE item_id = '$item_id'";
     $result = mysqli_query($connection, $query);
+    $data = mysqli_fetch_assoc($result);
+    $item_name = $data['item_name'];
+
+    $query = "SELECT * FROM tracker NATURAL JOIN locations WHERE item_id = '$item_id'";
+    $result = mysqli_query($connection, $query);
+
     if ($result) {
-        $data = mysqli_fetch_assoc($result);
+        $options = [];
+        while ($row = mysqli_fetch_assoc($result)) {
+            $options[] = [
+                'location_id' => $row['location_id'],
+                'location_name' => $row['location_name']
+            ];
+        }
         $response = array(
             'done' => true,
-            'item_id' => $item_id,
-            'item_name' => $data['item_name']
+            'item_id' => $data['item_id'],
+            'item_name' => $data['item_name'],
+            'options' => $options
         );
     } else {
         $response = array(
@@ -111,56 +131,62 @@ if (isset($_POST['deleteItem'])) {
 
 if (isset($_POST['edit-record'])) {
     $item_id = $_POST['edit-item-id'];
-    $item_name = $_POST['edit-item-name'];
+    $location_id = $_POST['edit-location-name'];
     $updates = array(
-        'description' => $_POST['edit-item-description'],
-        'purchase_year' => $_POST['edit-purchase-year'],
-        'purchase_value' => $_POST['edit-purchase-value'],
-        'no_of_items' => $_POST['edit-no-of-items'],
-        'curr_condition' => $_POST['edit-condition'],
-        'depreciation_rate' => $_POST['edit-depr-rate'],
-        'location' => $_POST['edit-location'],
+        'item_description' => $_POST['edit-item-description'],
+        'item_purchase_year' => $_POST['edit-purchase-year'],
+        'item_purchase_value' => $_POST['edit-purchase-value'],
+        'item_depreciation_rate' => $_POST['edit-depr-rate'],
+        'count_working' => $_POST['edit-count-working'],
+        'count_defect' => $_POST['edit-count-defect']
     );
 
-    $query = "UPDATE items_info SET description = '" . $_POST['edit-item-description'] . "' WHERE item_id = $item_id";
+    $query = "SELECT * FROM items NATURAL JOIN tracker NATURAL JOIN locations WHERE location_id = '$location_id' AND item_id = '$item_id'";
     $result = mysqli_query($connection, $query);
-    $query = "UPDATE items_info SET depreciation_rate = " . $_POST['edit-depr-rate'] . " WHERE item_id = $item_id";
-    $result = mysqli_query($connection, $query);
-    $query = "UPDATE items_info SET purchase_year = " . $_POST['edit-purchase-year'] . " WHERE item_id = $item_id";
-    $result = mysqli_query($connection, $query);
-    $query = "UPDATE items_info SET purchase_value = " . $_POST['edit-purchase-value'] . " WHERE item_id = $item_id";
-    $result = mysqli_query($connection, $query);
+    $data = mysqli_fetch_assoc($result);
 
-    $query = "UPDATE availability SET no_of_items = " . $_POST['edit-no-of-items'] . " WHERE item_id = $item_id";
-    $result = mysqli_query($connection, $query);
-    $query = "UPDATE availability SET curr_condition = '" . $_POST['edit-condition'] . "' WHERE item_id = $item_id";
-    $result = mysqli_query($connection, $query);
+    foreach ($updates as $key => $value) {
+        if ($data[$key] != $value) {
+            $value = mysqli_real_escape_string($connection, $value);
+            $query = "UPDATE items NATURAL JOIN tracker NATURAL JOIN locations SET $key = '$value' WHERE location_id = '$location_id' AND item_id = '$item_id'";
+            $result = mysqli_query($connection, $query);
+        }
+    }
 
-    // $query = "UPDATE items_info SET location_id = ( SELECT location_id FROM location WHERE location_name = '" . $_POST['location'] . "' )";
-    // $result = mysqli_query($connection, $query);
-
-    // $query = "SELECT * FROM items_info NATURAL JOIN availability NATURAL JOIN location WHERE item_id=$item_id";
-    // $result = mysqli_query($connection, $query);
-    // $row = mysqli_fetch_assoc($result);
-    // $query = "UPDATE items_info I JOIN location L ON (I.location_id = L.location_id) JOIN availability A ON (I.item_id = A.item_id) SET ";
-    // $arr = array();
-    // foreach ($result as $key => $value) {
-    //     echo $key . $value;
-    //     if ($row[$key] != $value) {
-    //         array_push($arr, "$key = $value");
-    //     }
-    // }
-    // $query = $query . implode($arr) . " WHERE item_id = $item_id";
-    // $result = mysqli_query($connection, $query);
     header("Location:index.php?manage-records");
 }
 
 if (isset($_POST['delete-record'])) {
-    // $item_id = $_POST['delete-item-id'];
-    // $location_id = $_POST['delete-location-name'];
-    // $query = "DELETE FROM items WHERE item_id = $item_id";
-    // $result1 = mysqli_query($connection, $query);
-    // $query = "DELETE FROM tracker WHERE location_id = $location_id AND item_id = $item_id";
-    // $result2 = mysqli_query($connection, $query);
+    $item_id = $_POST['delete-item-id'];
+    $location_id = $_POST['delete-location-name'];
+    if ($location_id != -1) {
+        $query = "DELETE FROM tracker WHERE item_id = '$item_id' AND location_id = '$location_id'";
+        $result = mysqli_query($connection, $query);
+    } else {
+        $query = "DELETE FROM tracker WHERE item_id = '$item_id'";
+        $result = mysqli_query($connection, $query);
+    }
     header("Location:index.php?manage-records");
+}
+
+if (isset($_POST['changeCount'])) {
+    $item_id = $_POST['item_id'];
+    $location_id = $_POST['location_id'];
+    $query = "SELECT * FROM tracker WHERE item_id = '$item_id' AND location_id = '$location_id'";
+    $result = mysqli_query($connection, $query);
+    if ($result) {
+        $data = mysqli_fetch_assoc($result);
+        $response = array(
+            "done" => true,
+            "count_working" => $data['count_working'],
+            "count_defect" => $data['count_defect']
+        );
+    } else {
+        $response = array(
+            "done" => false,
+            "result" => "Database Error"
+        );
+    }
+
+    echo json_encode($response);
 }
