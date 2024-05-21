@@ -212,12 +212,13 @@
 							<div class="form-group">
 								<label>Location: </label>
 								<select name="edit-location-name" id="edit-location-name">
-									
+
 								</select>
 							</div>
 							<div class="form-group">
 								<label>Count of Working: </label>
-								<input id="edit-count-working" name="edit-count-working" type="text" class="form-control">
+								<input id="edit-count-working" name="edit-count-working" type="text"
+									class="form-control">
 							</div>
 							<div class="form-group">
 								<label>Count of Defect: </label>
@@ -269,30 +270,4 @@
 		</div>
 	</div>
 </div>
-</div>
-
-<div class="bp">
-	<div class="select_lab">
-		<p class="name">Please select the floor below to view the stocks</p>
-		<li class="nope">
-			<a href="index.php?floor0" class="lab">
-				GROUND FLOOR
-			</a>
-		</li>
-		<li>
-			<a href="index.php?floor1" class="lab">
-				FIRST FLOOR
-			</a>
-		</li>
-		<li>
-			<a href="index.php?floor2" class="lab">
-				SECOND FLOOR
-			</a>
-		</li>
-		<li>
-			<a href="index.php?floor3" class="lab">
-				THIRD FLOOR
-			</a>
-		</li>
-	</div>
 </div>

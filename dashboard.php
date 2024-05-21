@@ -68,31 +68,56 @@
     }
 </style>
 
-<body>
+<div class="main">
 
-    <div class="main">
-
-        <?php
-        $query = "SELECT *, calculateTotalCount(item_id) AS tcount FROM items";
-        $result = mysqli_query($connection, $query);
-        while ($row = mysqli_fetch_assoc($result)) {
-            echo "<div class='new'>
+    <?php
+    $query = "SELECT *, calculateTotalCount(item_id) AS tcount FROM items";
+    $result = mysqli_query($connection, $query);
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo "<div class='new'>
                     <p>" . $row['item_name'] . "</p>
                     <img class='das_img' src='./assets/ " . $row['image'] . " '></img>
                     <p> Count: " . $row['tcount'] . "</p>
                 </div>";
-        }
-        ?>
+    }
+    ?>
 
-        <div class="Complaints new">
-            <p>Complaints</p>
-            <img class="das_img" src="./assets/cmpl.jpg" alt="" height=100 width=150>
-            <p>count</p>
-        </div>
-        <div class="amt new">
-            <p>&#8377;Amount spent</p>
-            <img class="das_img" src="./assets/amt1.jpg" alt="" height=100 width=150>
-            <p>count</p>
-        </div>
+    <div class="Complaints new">
+        <p>Complaints</p>
+        <img class="das_img" src="./assets/cmpl.jpg" alt="" height=100 width=150>
+        <p>count</p>
     </div>
-</body>
+    <div class="amt new">
+        <p>&#8377;Amount spent</p>
+        <img class="das_img" src="./assets/amt1.jpg" alt="" height=100 width=150>
+        <p>count</p>
+    </div>
+
+
+</div>
+
+<div class="bp">
+    <div class="select_lab">
+        <p class="name">Please select the floor below to view the stocks</p>
+        <li class="nope">
+            <a href="index.php?floor0" class="lab">
+                GROUND FLOOR
+            </a>
+        </li>
+        <li>
+            <a href="index.php?floor1" class="lab">
+                FIRST FLOOR
+            </a>
+        </li>
+        <li>
+            <a href="index.php?floor2" class="lab">
+                SECOND FLOOR
+            </a>
+        </li>
+        <li>
+            <a href="index.php?floor3" class="lab">
+                THIRD FLOOR
+            </a>
+        </li>
+    </div>
+</div>
