@@ -20,47 +20,36 @@ if (isset($_POST['login'])) {
 }
 
 if (isset($_POST['add-record'])) {
-    $item_name = $_POST['item-name'];
-    $desc = $_POST['item-description'];
-    $year = $_POST['purchase-year'];
-    $value = $_POST['purchase-value'];
-    $no_of_items = $_POST['no-of-items'];
-    $condition = $_POST['condition'];
-    $depr_rate = $_POST['depr-rate'];
-    $location = $_POST['location'];
+    if ($_POST['item-id'] != -1) {
 
-    $query = "SELECT * FROM items_info WHERE item_name = '$item_name'";
-    if (mysqli_num_rows(mysqli_query($connection, $query)) >= 1) {
-        // Shouldnt be present
+        $location_id = $_POST['location-id'];
+        $item_id = $_POST['item-id'];
+        $working = $_POST['count-working'];
+        $defect = $_POST['count-defect'];
+
+        $query = "SELECT * FROM tracker WHERE location_id = $location_id AND item_id = $item_id";
+        $result = mysqli_query($connection, $query);
+        if ($result) {
+            $row = mysqli_fetch_assoc($result);
+            $working += $row['count-working'];
+            $defect += $row['count-defect'];
+        }
     } else {
+        $item_name = $_POST['item-name'];
+        $location_id = $_POST['location-id'];
+        $item_id = $_POST['item-id'];
+        $desc = $_POST['item-description'];
+        $year = $_POST['purchase-year'];
+        $value = $_POST['purchase-value'];
+        $depr_rate = $_POST['depr-rate'];
 
-        $query = "INSERT INTO items_info(item_name, description, depreciation_rate, purchase_year, purchase_value) 
+        $query = "INSERT INTO items(item_name, item_description, item_depreciation_rate, item_purchase_year, item_purchase_price) 
             VALUES('$item_name', '$desc', $depr_rate, $year, $value)";
         mysqli_query($connection, $query);
-
     }
 
-    $query = "SELECT * FROM location WHERE location_name = '$location'";
-    if (mysqli_num_rows(mysqli_query($connection, $query)) == 0) {
-        $query = "INSERT INTO location(location_name) VALUES ('$location')";
-        mysqli_query($connection, $query);
-
-    }
-    $query = "SELECT * from items_info WHERE item_name = '$item_name'";
-    $result = mysqli_query($connection, $query);
-    $item_id = mysqli_fetch_column($result, 0);
-
-    $query = "SELECT * from location WHERE location_name = '$location'";
-    $result = mysqli_query($connection, $query);
-    $location_id = mysqli_fetch_column($result, 0);
-
-    $query = "SELECT * FROM availability WHERE item_id = $item_id AND location_id = $location_id";
-    if (mysqli_num_rows(mysqli_query($connection, $query)) >= 1) {
-        // Shouldnt be present
-    } else {
-        $query = "INSERT INTO availability VALUES ($item_id, $location_id, $no_of_items, '$condition')";
-        mysqli_query($connection, $query);
-    }
+    $query = "INSERT INTO tracker VALUES ($location_id, $item_id, $working, $defect);";
+    mysqli_query($connection, $query);
 
     header('Location:index.php?manage-records');
 }
@@ -83,6 +72,28 @@ if (isset($_POST['editItem'])) {
             'location' => $data['location_name'],
             'no_of_items' => $data['no_of_items'],
             'condition' => $data['curr_condition']
+        );
+    } else {
+        $response = array(
+            'done' => false,
+            'result' => 'Database Error'
+        );
+    }
+
+    echo json_encode($response);
+}
+
+if (isset($_POST['deleteItem'])) {
+
+    $item_id = intval($_POST['item_id']);
+    $query = "SELECT * FROM items WHERE item_id = $item_id";
+    $result = mysqli_query($connection, $query);
+    if ($result) {
+        $data = mysqli_fetch_assoc($result);
+        $response = array(
+            'done' => true,
+            'item_id' => $item_id,
+            'item_name' => $data['item_name']
         );
     } else {
         $response = array(
@@ -121,8 +132,8 @@ if (isset($_POST['edit-record'])) {
     $query = "UPDATE availability SET curr_condition = '" . $_POST['edit-condition'] . "' WHERE item_id = $item_id";
     $result = mysqli_query($connection, $query);
 
-    $query = "UPDATE items_info SET location_id = ( SELECT location_id FROM location WHERE location_name = '" . $_POST['location'] . "' )";
-    $result = mysqli_query($connection, $query);
+    // $query = "UPDATE items_info SET location_id = ( SELECT location_id FROM location WHERE location_name = '" . $_POST['location'] . "' )";
+    // $result = mysqli_query($connection, $query);
 
     // $query = "SELECT * FROM items_info NATURAL JOIN availability NATURAL JOIN location WHERE item_id=$item_id";
     // $result = mysqli_query($connection, $query);
@@ -140,11 +151,12 @@ if (isset($_POST['edit-record'])) {
     header("Location:index.php?manage-records");
 }
 
-if (isset($_GET['delete-record'])) {
-    $item_id = $_GET['delete-record'];
-    $query = "DELETE FROM items_info WHERE item_id = $item_id";
-    $result = mysqli_query($connection, $query);
-    $query = "DELETE FROM availability WHERE item_id = $item_id";
-    $result = mysqli_query($connection, $query);
+if (isset($_POST['delete-record'])) {
+    // $item_id = $_POST['delete-item-id'];
+    // $location_id = $_POST['delete-location-name'];
+    // $query = "DELETE FROM items WHERE item_id = $item_id";
+    // $result1 = mysqli_query($connection, $query);
+    // $query = "DELETE FROM tracker WHERE location_id = $location_id AND item_id = $item_id";
+    // $result2 = mysqli_query($connection, $query);
     header("Location:index.php?manage-records");
 }
