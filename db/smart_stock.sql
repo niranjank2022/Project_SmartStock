@@ -217,3 +217,75 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+DELIMITER //
+
+CREATE TRIGGER before_items_update
+BEFORE UPDATE ON items
+FOR EACH ROW
+BEGIN
+    DECLARE new_description VARCHAR(255);
+    DECLARE new_purchase_year INT;
+    DECLARE new_purchase_value DECIMAL(10, 2);
+    DECLARE new_depreciation_rate DECIMAL(5, 2);
+    DECLARE new_count_working INT;
+    DECLARE new_count_defect INT;
+
+    SET new_description = NEW.item_description;
+    SET new_purchase_year = NEW.item_purchase_year;
+    SET new_purchase_value = NEW.item_purchase_value;
+    SET new_depreciation_rate = NEW.item_depreciation_rate;
+    SET new_count_working = NEW.count_working;
+    SET new_count_defect = NEW.count_defect;
+
+    IF OLD.item_description != new_description THEN
+        UPDATE tracker
+        SET item_description = new_description
+        WHERE item_id = OLD.item_id;
+    END IF;
+
+    IF OLD.item_purchase_year != new_purchase_year THEN
+        UPDATE tracker
+        SET item_purchase_year = new_purchase_year
+        WHERE item_id = OLD.item_id;
+    END IF;
+
+    IF OLD.item_purchase_value != new_purchase_value THEN
+        UPDATE tracker
+        SET item_purchase_value = new_purchase_value
+        WHERE item_id = OLD.item_id;
+    END IF;
+
+    IF OLD.item_depreciation_rate != new_depreciation_rate THEN
+        UPDATE tracker
+        SET item_depreciation_rate = new_depreciation_rate
+        WHERE item_id = OLD.item_id;
+    END IF;
+
+    IF OLD.count_working != new_count_working THEN
+        UPDATE tracker
+        SET count_working = new_count_working
+        WHERE item_id = OLD.item_id;
+    END IF;
+
+    IF OLD.count_defect != new_count_defect THEN
+        UPDATE tracker
+        SET count_defect = new_count_defect
+        WHERE item_id = OLD.item_id;
+    END IF;
+
+END//
+
+DELIMITER ;
+
+DELIMITER //
+
+CREATE PROCEDURE GetItemDetails()
+BEGIN
+    SELECT item_name, image, tcount
+    FROM items
+    NATURAL JOIN tracker
+    NATURAL JOIN locations;
+END //
+
+DELIMITER ;
+
