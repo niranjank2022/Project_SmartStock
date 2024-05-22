@@ -44,13 +44,6 @@
                             </a>
                         </li>
                         <li>
-                            <a href="index.php?settings" class="nav-link text-white">
-                                <img class="bi d-block mx-auto mb-1" width="24" height="24"
-                                    src="./assets/settings.png"></img>
-                                Settings
-                            </a>
-                        </li>
-                        <li>
                         <a href="index.php?logout" class="nav-link text-white">
                                 <img class="bi d-block mx-auto mb-1" width="24" height="24"
                                     src="./assets/logout.png"></img>
