@@ -123,7 +123,7 @@
 		<div class="info-tab">
 			<h3>Class room:</h3>
 			<?php
-			$query = "SELECT location_id FROM locations WHERE location_name = 'GFL'";
+			$query = "SELECT location_id FROM locations WHERE location_name = 'ClassRoom'";
 			$result = mysqli_query($connection, $query);
 			$row = mysqli_fetch_assoc($result);
 			$loc_id = $row['location_id'];
@@ -143,7 +143,7 @@
 		<div class="info-tab">
 			<h3>TURING HALL:</h3>
 			<?php
-			$query = "SELECT location_id FROM locations WHERE location_name = 'GFL'";
+			$query = "SELECT location_id FROM locations WHERE location_name = 'turing hall'";
 			$result = mysqli_query($connection, $query);
 			$row = mysqli_fetch_assoc($result);
 			$loc_id = $row['location_id'];
@@ -162,7 +162,7 @@
 		<div class="info-tab">
 			<h3>UPS ROOM:</h3>
 			<?php
-			$query = "SELECT location_id FROM locations WHERE location_name = 'GFL'";
+			$query = "SELECT location_id FROM locations WHERE location_name = 'ups room'";
 			$result = mysqli_query($connection, $query);
 			$row = mysqli_fetch_assoc($result);
 			$loc_id = $row['location_id'];
@@ -181,7 +181,7 @@
 		<div class="info-tab">
 			<h3>Staff room 1:</h3>
 			<?php
-			$query = "SELECT location_id FROM locations WHERE location_name = 'GFL'";
+			$query = "SELECT location_id FROM locations WHERE location_name = 'Staff Room'";
 			$result = mysqli_query($connection, $query);
 			$row = mysqli_fetch_assoc($result);
 			$loc_id = $row['location_id'];
@@ -200,7 +200,7 @@
 		<div class="info-tab">
 			<h3>Staff room 2:</h3>
 			<?php
-			$query = "SELECT location_id FROM locations WHERE location_name = 'GFL'";
+			$query = "SELECT location_id FROM locations WHERE location_name = 'Staff Room'";
 			$result = mysqli_query($connection, $query);
 			$row = mysqli_fetch_assoc($result);
 			$loc_id = $row['location_id'];
@@ -219,7 +219,7 @@
 		<div class="info-tab">
 			<h3>Staff room 3:</h3>
 			<?php
-			$query = "SELECT location_id FROM locations WHERE location_name = 'GFL'";
+			$query = "SELECT location_id FROM locations WHERE location_name = 'Staff Room'";
 			$result = mysqli_query($connection, $query);
 			$row = mysqli_fetch_assoc($result);
 			$loc_id = $row['location_id'];

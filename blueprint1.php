@@ -116,7 +116,7 @@
 		<div class="info-tab">
 			<h3>Staff room 4:</h3>
 			<?php
-			$query = "SELECT location_id FROM locations WHERE location_name = 'GFL'";
+			$query = "SELECT location_id FROM locations WHERE location_name = 'Staff Room'";
 			$result = mysqli_query($connection, $query);
 			$row = mysqli_fetch_assoc($result);
 			$loc_id = $row['location_id'];
@@ -135,7 +135,7 @@
 		<div class="info-tab">
 			<h3>FIRST FLOOR LAB:</h3>
 			<?php
-			$query = "SELECT location_id FROM locations WHERE location_name = 'GFL'";
+			$query = "SELECT location_id FROM locations WHERE location_name = 'FFL'";
 			$result = mysqli_query($connection, $query);
 			$row = mysqli_fetch_assoc($result);
 			$loc_id = $row['location_id'];
@@ -154,7 +154,7 @@
 		<div class="info-tab">
 			<h3>Class room:</h3>
 			<?php
-			$query = "SELECT location_id FROM locations WHERE location_name = 'GFL'";
+			$query = "SELECT location_id FROM locations WHERE location_name = 'ClassRoom'";
 			$result = mysqli_query($connection, $query);
 			$row = mysqli_fetch_assoc($result);
 			$loc_id = $row['location_id'];
@@ -173,7 +173,7 @@
 		<div class="info-tab">
 			<h3>CPU lab:</h3>
 			<?php
-			$query = "SELECT location_id FROM locations WHERE location_name = 'GFL'";
+			$query = "SELECT location_id FROM locations WHERE location_name = 'CPU Lab1'";
 			$result = mysqli_query($connection, $query);
 			$row = mysqli_fetch_assoc($result);
 			$loc_id = $row['location_id'];
@@ -192,7 +192,7 @@
 		<div class="info-tab">
 			<h3>DEPARTMENT LIBRARY:</h3>
 			<?php
-			$query = "SELECT location_id FROM locations WHERE location_name = 'GFL'";
+			$query = "SELECT location_id FROM locations WHERE location_name = 'Department Lib'";
 			$result = mysqli_query($connection, $query);
 			$row = mysqli_fetch_assoc($result);
 			$loc_id = $row['location_id'];
@@ -212,7 +212,7 @@
 		<div class="info-tab">
 			<h3>HOD ROOM:-</h3>
 			<?php
-			$query = "SELECT location_id FROM locations WHERE location_name = 'GFL'";
+			$query = "SELECT location_id FROM locations WHERE location_name = 'HOD Room'";
 			$result = mysqli_query($connection, $query);
 			$row = mysqli_fetch_assoc($result);
 			$loc_id = $row['location_id'];
@@ -231,7 +231,7 @@
 		<div class="info-tab">
 			<h3>Staff room 1:-</h3>
 			<?php
-			$query = "SELECT location_id FROM locations WHERE location_name = 'GFL'";
+			$query = "SELECT location_id FROM locations WHERE location_name = 'Staff Room'";
 			$result = mysqli_query($connection, $query);
 			$row = mysqli_fetch_assoc($result);
 			$loc_id = $row['location_id'];
@@ -251,7 +251,7 @@
 		<div class="info-tab">
 			<h3>Staff room 2:-</h3>
 			<?php
-			$query = "SELECT location_id FROM locations WHERE location_name = 'GFL'";
+			$query = "SELECT location_id FROM locations WHERE location_name = 'Staff Room'";
 			$result = mysqli_query($connection, $query);
 			$row = mysqli_fetch_assoc($result);
 			$loc_id = $row['location_id'];
@@ -270,7 +270,7 @@
 		<div class="info-tab">
 			<h3>Staff room 3:-</h3>
 			<?php
-			$query = "SELECT location_id FROM locations WHERE location_name = 'GFL'";
+			$query = "SELECT location_id FROM locations WHERE location_name = 'Staff Room'";
 			$result = mysqli_query($connection, $query);
 			$row = mysqli_fetch_assoc($result);
 			$loc_id = $row['location_id'];

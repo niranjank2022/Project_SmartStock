@@ -62,9 +62,19 @@
 
     .das_img {
         background-position: center;
-        margin-left: 20%;
-
-
+        margin: 5px auto;
+        height: 160px;
+        width: 160px;
+    }
+    .center{
+        /* display: flex; */
+        /* float: left; */
+        margin: 40px 40%;
+        width: 60%;
+    }
+    .nope{
+       
+        padding: 20px;
     }
 </style>
 
@@ -76,17 +86,12 @@
     while ($row = mysqli_fetch_assoc($result)) {
         echo "<div class='new'>
                     <p>" . $row['item_name'] . "</p>
-                    <img class='das_img' src='./assets/ " . $row['image'] . " '></img>
+                    <img class='das_img' src='./assets/". $row['image']." ' alt='no image found'  ''></img>
+                    
                     <p> Count: " . $row['tcount'] . "</p>
                 </div>";
     }
     ?>
-
-    <div class="Complaints new">
-        <p>Complaints</p>
-        <img class="das_img" src="./assets/cmpl.jpg" alt="" height=100 width=150>
-        <p>count</p>
-    </div>
     <div class="amt new">
         <p>&#8377;Amount spent</p>
         <img class="das_img" src="./assets/amt1.jpg" alt="" height=100 width=150>
@@ -97,25 +102,25 @@
 </div>
 
 <div class="bp">
-    <div class="select_lab">
         <p class="name">Please select the floor below to view the stocks</p>
+        <div class="center">
         <li class="nope">
-            <a href="index.php?floor0" class="lab">
+            <a href="index.php?floor0" style=" text-decoration: none;">
                 GROUND FLOOR
             </a>
         </li>
-        <li>
-            <a href="index.php?floor1" class="lab">
+        <li class="nope">
+            <a href="index.php?floor1"  style=" text-decoration: none;">
                 FIRST FLOOR
             </a>
         </li>
-        <li>
-            <a href="index.php?floor2" class="lab">
+        <li class="nope">
+            <a href="index.php?floor2"  style=" text-decoration: none;">
                 SECOND FLOOR
             </a>
         </li>
-        <li>
-            <a href="index.php?floor3" class="lab">
+        <li class="nope">
+            <a href="index.php?floor3"  style=" text-decoration: none;">
                 THIRD FLOOR
             </a>
         </li>
