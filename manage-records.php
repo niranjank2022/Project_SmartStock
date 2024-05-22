@@ -275,7 +275,6 @@
 	</div>
 </div>
 </div>
-
 <div class="bp">
 	<div class="select_lab">
 		<p class="name">Please select the floor below to view the stocks</p>
@@ -301,3 +300,4 @@
 		</li>
 	</div>
 </div>
+

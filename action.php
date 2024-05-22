@@ -152,11 +152,11 @@ if (isset($_POST['edit-record'])) {
 }
 
 if (isset($_POST['delete-record'])) {
-    // $item_id = $_POST['delete-item-id'];
-    // $location_id = $_POST['delete-location-name'];
-    // $query = "DELETE FROM items WHERE item_id = $item_id";
-    // $result1 = mysqli_query($connection, $query);
-    // $query = "DELETE FROM tracker WHERE location_id = $location_id AND item_id = $item_id";
-    // $result2 = mysqli_query($connection, $query);
+    $item_id = $_POST['delete-item-id'];
+    $location_id = $_POST['delete-location-name'];
+    $query = "DELETE FROM items WHERE item_id = $item_id";
+    $result1 = mysqli_query($connection, $query);
+    $query = "DELETE FROM tracker WHERE location_id = $location_id AND item_id = $item_id";
+    $result2 = mysqli_query($connection, $query);
     header("Location:index.php?manage-records");
 }

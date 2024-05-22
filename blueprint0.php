@@ -96,13 +96,13 @@
       <h3>GROUND FLOOR LAB</h3>
       <div class="info-tab">
       <h3>GROUND FLOOR LAB:</h3>
-      <p>Chairs:</p>
-      <p>Tables:</p>
-      <p>Lights:</p>
-      <p>Fan:</p>
-      <p>AC:</p>
-      <p>System:</p>
-      <p>Prjector:</p>
+      <p>Chairs:96 </p>
+      <p>Tables:4</p>
+      <p>Lights:20</p>
+      <p>Fan:18</p>
+      <p>AC:10</p>
+      <p>System:85</p>
+      <p>Projector:2</p>
       </div>   
       <!-- Add lab content here -->
     </div>
