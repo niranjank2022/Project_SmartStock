@@ -25,7 +25,6 @@
         box-shadow: 1px 1px 1px 1px gainsboro;
 
     }
-
     .labu {
         width: 600px;
         display: block;
@@ -43,7 +42,9 @@
         box-shadow: 1px 1px 1px 1px gainsboro;
         height: 150px;
     }
-
+    .bp{
+        margin-top: 40px;
+    }
     .new:hover {
         transform: scale(1.1);
     }
@@ -59,7 +60,7 @@
         flex-direction: column;
 
     }
-
+    
     .das_img {
         background-position: center;
         margin: 5px auto;
@@ -77,6 +78,8 @@
         padding: 20px;
     }
 </style>
+<body>
+    
 
 <div class="main">
 
@@ -92,11 +95,11 @@
                 </div>";
     }
     ?>
-    <div class="amt new">
+    <!-- <div class="amt new">
         <p>&#8377;Amount spent</p>
         <img class="das_img" src="./assets/amt1.jpg" alt="" height=100 width=150>
         <p>count</p>
-    </div>
+    </div> -->
 
 
 </div>
@@ -126,3 +129,4 @@
         </li>
     </div>
 </div>
+</body>

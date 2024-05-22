@@ -1,6 +1,7 @@
 <style>
 	body {
 		font-family: Arial, sans-serif;
+		background: linear-gradient(to right, #4facfe, #00f2fe);
 	}
 
 	.info-tab {
