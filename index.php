@@ -22,6 +22,14 @@ if (isset($_GET['home'])) {
     include_once 'dashboard.php';
 } else if (isset($_GET['manage-records'])) {
     include_once 'manage-records.php';
+} else if (isset($_GET['floor0'])) {
+    include_once "blueprint0.php";
+} else if (isset($_GET['floor1'])) {
+    include_once "blueprint1.php";
+} else if (isset($_GET['floor2'])) {
+    include_once "blueprint2.php";
+} else if (isset($_GET['floor3'])) {
+    include_once "blueprint3.php";
 } else if (isset($_GET['logout'])) {
     include_once "logout.php";
 } 
