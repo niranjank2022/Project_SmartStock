@@ -130,30 +130,38 @@ if (isset($_POST['deleteItem'])) {
 }
 
 if (isset($_POST['edit-record'])) {
-    $item_id = $_POST['edit-item-id'];
-    $location_id = $_POST['edit-location-name'];
+    $item_id = mysqli_real_escape_string($connection, $_POST['edit-item-id']);
+    $location_id = mysqli_real_escape_string($connection, $_POST['edit-location-name']);
+    
     $updates = array(
-        'item_description' => $_POST['edit-item-description'],
-        'item_purchase_year' => $_POST['edit-purchase-year'],
-        'item_purchase_value' => $_POST['edit-purchase-value'],
-        'item_depreciation_rate' => $_POST['edit-depr-rate'],
-        'count_working' => $_POST['edit-count-working'],
-        'count_defect' => $_POST['edit-count-defect']
+        'item_description' => mysqli_real_escape_string($connection, $_POST['edit-item-description']),
+        'item_purchase_year' => mysqli_real_escape_string($connection, $_POST['edit-purchase-year']),
+        'item_purchase_price' => mysqli_real_escape_string($connection, $_POST['edit-purchase-value']),
+        'item_depreciation_rate' => mysqli_real_escape_string($connection, $_POST['edit-depr-rate']),
+        'count_working' => mysqli_real_escape_string($connection, $_POST['edit-count-working']),
+        'count_defect' => mysqli_real_escape_string($connection, $_POST['edit-count-defect'])
     );
-
+    echo "hello";
+    print_r($updates);
+    // Fetch existing data
     $query = "SELECT * FROM items NATURAL JOIN tracker NATURAL JOIN locations WHERE location_id = '$location_id' AND item_id = '$item_id'";
     $result = mysqli_query($connection, $query);
-    $data = mysqli_fetch_assoc($result);
 
-    foreach ($updates as $key => $value) {
-        if ($data[$key] != $value) {
-            $value = mysqli_real_escape_string($connection, $value);
-            $query = "UPDATE items NATURAL JOIN tracker NATURAL JOIN locations SET $key = '$value' WHERE location_id = '$location_id' AND item_id = '$item_id'";
-            $result = mysqli_query($connection, $query);
+    if ($result) {
+        $data = mysqli_fetch_assoc($result);
+
+        // Loop through updates and perform update if values are different
+        foreach ($updates as $key => $value) {
+            if ($data[$key] != $value) {
+                $query = "UPDATE items NATURAL JOIN tracker NATURAL JOIN locations SET $key = '$value' WHERE location_id = '$location_id' AND item_id = '$item_id'";
+                mysqli_query($connection, $query);
+                echo "suren";
+            }
         }
     }
 
-    header("Location:index.php?manage-records");
+    // Redirect to manage records page
+    header('Location:index.php?manage-records');
 }
 
 if (isset($_POST['delete-record'])) {
